@@ -44,7 +44,6 @@
   .values__container {
     flex-direction: row;
     align-items: center;
-    gap: 6rem !important;
   }
 
   .values__content {
@@ -54,7 +53,6 @@
 
   .values__list {
     flex: 1;
-    padding-left: 4rem;
   }
 
   .strategy__container {
