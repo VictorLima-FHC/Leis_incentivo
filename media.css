@@ -237,6 +237,18 @@
     align-items: center;
   }
 
+  .action-item__body {
+    max-width: 220px;
+  }
+
+  .action-item__row {
+    padding: 0;
+  }
+
+  .action-item:nth-child(2) {
+    border: none;
+  }
+
   .values-mobile__item {
     display: flex;
     flex-direction: column;
