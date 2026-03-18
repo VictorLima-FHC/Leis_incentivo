@@ -221,6 +221,11 @@ ul[role="list"] {
 }
 
 /* ─── Values (Section 1) ─────────────────────────────────────────────────── */
+
+.values-mobile {
+  display: none;
+}
+
 .values {
   background: linear-gradient(to bottom, 
     var(--color-accent) 0%, 
@@ -513,7 +518,7 @@ ul[role="list"] {
   max-width: 1440px;
   width: 95vw;
   margin-inline: auto;
-  padding-block: var(--spacing-section-y);
+  padding-bottom: 50px;
 
 }
 
