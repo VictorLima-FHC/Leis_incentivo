@@ -1,0 +1,576 @@
+/* ─── Font Faces ─────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexia';
+  src: url('assets/fonts/Lexia-W01-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexia';
+  src: url('assets/fonts/Lexia-W01-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexia';
+  src: url('assets/fonts/Lexia-W01-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexia';
+  src: url('assets/fonts/Lexia-W01-XBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens ──────────────────────────────────────────────────────── */
+
+:root {
+  /* Colors */
+  --color-primary: #78174f;
+  --color-accent: #e6ae3b;
+  --color-bg-light: #f9f9f9;
+  --color-text: #1f1f1e;
+  --color-white: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.9);
+
+  /* Fonts */
+  --font-display: 'Lexia', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Fluid typography */
+  --text-h1: clamp(1.75rem, 1.21rem + 2.197vw, 3.1875rem);
+  --text-h2: clamp(1rem, 1.4rem + 0.3vw, 1.8125rem);
+  /* 20→29px */
+  --text-h3: clamp(1.0625rem, 0.898rem + 0.668vw, 1.5rem);
+  /* 17→24px */
+  --text-body-xl: clamp(1rem, 0.859rem + 1vw, 1.375rem);
+  /* 16→22px */
+  --text-body-lg: clamp(0.875rem, 0.781rem + 0.382vw, 1.125rem);
+  /* 14→18px */
+  --text-body: clamp(0.8125rem, 0.742rem + 0.286vw, 1rem);
+  /* 13→16px */
+  --text-btn: clamp(0.875rem, 0.805rem + 0.286vw, 1.0625rem);
+
+  /* Fluid spacing */
+  --spacing-section-x: clamp(1.5rem, -0.377rem + 5vw, 6.5rem);
+  --spacing-section-y: clamp(2rem, 0.855rem + 4.585vw, 6.5rem);
+  --spacing-gap-content: clamp(1.5rem, 0.609rem + 3.582vw, 5rem);
+  --spacing-gap-card: clamp(1rem, 0.667rem + 1.338vw, 1.875rem);
+  --spacing-gap-inner: clamp(1.25rem, 0.944rem + 1.242vw, 2.0625rem);
+  --spacing-gap-s3: clamp(0.6rem, 1vw, 1.6rem);
+
+  /* Radii */
+  --radius-btn: 0.25rem;
+  --radius-card: 0.9375rem;
+}
+
+/* ─── Reset & Base ───────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul[role="list"] {
+  list-style: none;
+}
+
+/* ─── Container ──────────────────────────────────────────────────────────── */
+
+.container {
+  max-width: 1440px;
+  width: 95vw;
+  margin-inline: auto;
+  padding-block: var(--spacing-section-y);
+}
+
+/* ─── Shared Buttons ─────────────────────────────────────────────────────── */
+
+.btn {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: var(--text-btn);
+  font-weight: 700;
+  line-height: 1.3;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--white {
+  display: flex;
+  background-color: var(--color-white);
+  color: var(--color-text);
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.btn__icon {
+  width: 1rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────────────────── */
+
+.hero {
+  width: 100%;
+  height: 22rem;
+  overflow: hidden;
+  background-image: url('assets/images/mobile/hero_img.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.26);
+  pointer-events: none;
+}
+
+.hero__container {
+  position: relative;
+  z-index: 1;
+  padding-block: 0;
+  height: 22.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--color-white);
+}
+
+/* ─── Values (Section 1) ─────────────────────────────────────────────────── */
+.values {
+  background: linear-gradient(to bottom, 
+    var(--color-accent) 0%, 
+    var(--color-accent) 45%, 
+    var(--color-primary) 45%, 
+    var(--color-primary) 100%);
+  width: 100%;
+}
+
+.values__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-content);
+  max-width: 1440px;
+  width: 95vw;
+  margin-inline: auto;
+  padding-block: var(--spacing-section-y);
+}
+
+.values__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.values__lead {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.values__sub {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.values__list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-gap-content);
+  padding: 0;
+  margin: 0;
+}
+
+.values__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.values__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5.25rem;
+}
+
+.values__icon {
+  width: 5.25rem;
+}
+
+.values__label {
+  font-family: var(--font-display);
+  font-size: var(--text-body-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-white);
+  text-align: center;
+}
+
+
+/* ─── Pillars / Cards (Section 2) ────────────────────────────────────────── */
+
+.pillars {
+  background-color: var(--color-white);
+}
+
+.pillars__header {
+  margin-bottom: var(--spacing-gap-content);
+}
+
+.pillars__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.pillars__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-card);
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-light);
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 7 / 3;
+  display: block;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: var(--spacing-gap-inner);
+  flex: 1;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.card__text {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.25;
+  letter-spacing: 0.0375rem;
+  color: var(--color-text);
+}
+
+/* ─── Strategy (Section 3) ───────────────────────────────────────────────── */
+
+.strategy {
+  background-color: var(--color-bg-light);
+}
+
+.strategy__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-content);
+}
+
+.strategy__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-content);
+}
+
+.strategy__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.strategy__body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: 1.3;
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+.strategy__image-wrap-desk {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+}
+
+.strategy__image-wrap-mobile {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.strategy__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16 / 7;
+  display: block;
+}
+
+/* Action items */
+.action-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-s3);
+  padding-block: var(--spacing-gap-content);
+}
+
+.action-item__title {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+.action-item__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-gap-inner);
+}
+
+.action-item__icon {
+  width: 3rem;
+  height: auto;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.action-item__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.action-item__body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: 1.3;
+  color: var(--color-text);
+  opacity: 0.9;
+  max-width: 200px;
+}
+
+.action-item__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.action-item__link:hover {
+  opacity: 0.7;
+}
+
+.action-item__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.action-item__arrow {
+  width: 1rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ─── Project Banner / Viva a Cultura (Section 4) ────────────────────────── */
+
+.project-banner {
+  background-color: var(--color-primary);
+}
+
+.project-banner__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-content);
+}
+
+.project-banner__photos {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-banner__photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  display: block;
+}
+
+.project-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-banner__heading-mobile {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-white);
+}
+
+.project-banner__heading-desk {
+  display: none;
+}
+
+.project-banner__body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: 1.3;
+  color: var(--color-text-muted);
+}
+
+.project-banner__body strong {
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+/* ─── Fade-in animation (used by index.js) ───────────────────────────────── */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none;
+}
