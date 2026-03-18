@@ -127,7 +127,7 @@ ul[role="list"] {
 
 .container {
   max-width: 1440px;
-  width: 95vw;
+  width: 90vw;
   margin-inline: auto;
   padding-block: var(--spacing-section-y);
 }
@@ -240,7 +240,7 @@ ul[role="list"] {
   flex-direction: column;
   gap: var(--spacing-gap-content);
   max-width: 1440px;
-  width: 95vw;
+  width: 90vw;
   margin-inline: auto;
   padding-block: var(--spacing-section-y);
 }
