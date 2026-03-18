@@ -106,21 +106,28 @@
   .project-banner__container {
     flex-direction: row;
     align-items: stretch;
-    gap: 4rem;
+    padding: 0 50px;  
+    align-items: center;
   }
 
   .project-banner__photos {
-    flex: 5;
+    flex: 2.5;
+    height: 400px;
+    margin-top: 50px;
   }
 
   .project-banner__photo {
-    width: 50%;
+    display: flex;
+    width: 45%;
     object-fit: cover;
   }
 
   .project-banner__content {
-    flex: 3;
+    flex: 1.;
     justify-content: center;
+  }
+  .project-banner__content h2, .project-banner__content p {
+    max-width: 350px;
   }
 }
 
@@ -145,7 +152,7 @@
 
   .slider__controls {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     right: 12px;
     display: flex;
     gap: 8px;
@@ -174,15 +181,19 @@
 
 @media (max-width: 480px) {
   .values {
-    background: linear-gradient(to bottom, 
-      var(--color-accent) 0%, 
-      var(--color-accent) 38%, 
-      var(--color-primary) 38%, 
-      var(--color-primary) 100%);
+    background: linear-gradient(to bottom,
+        var(--color-accent) 0%,
+        var(--color-accent) 38%,
+        var(--color-primary) 38%,
+        var(--color-primary) 100%);
   }
 
   .values__container {
     gap: 2.5rem;
+  }
+
+  .action-item__body {
+    max-width: 200px;
   }
 
   .values__list {
@@ -204,4 +215,9 @@
     text-align: center;
     max-width: 200px;
   }
+
+  .project-banner {
+    width: 100%;
+  }
+  
 }

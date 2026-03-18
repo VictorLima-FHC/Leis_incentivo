@@ -375,6 +375,7 @@ ul[role="list"] {
 
 .strategy {
   background-color: var(--color-bg-light);
+  
 }
 
 .strategy__container {
@@ -473,7 +474,6 @@ ul[role="list"] {
   line-height: 1.3;
   color: var(--color-text);
   opacity: 0.9;
-  max-width: 200px;
 }
 
 .action-item__link {
@@ -510,12 +510,16 @@ ul[role="list"] {
 
 .project-banner {
   background-color: var(--color-primary);
+  max-width: 1440px;
+  width: 95vw;
+  margin-inline: auto;
+  padding-block: var(--spacing-section-y);
+
 }
 
 .project-banner__container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-gap-content);
 }
 
 .project-banner__photos {
@@ -535,7 +539,8 @@ ul[role="list"] {
 .project-banner__content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  padding-top: 40px;
 }
 
 .project-banner__heading-mobile {
@@ -544,6 +549,7 @@ ul[role="list"] {
   font-weight: 700;
   line-height: 1.3;
   color: var(--color-white);
+  padding-bottom: 30px;
 }
 
 .project-banner__heading-desk {
@@ -555,6 +561,7 @@ ul[role="list"] {
   font-size: var(--text-body-lg);
   line-height: 1.3;
   color: var(--color-text-muted);
+  max-width: 350px;
 }
 
 .project-banner__body strong {
